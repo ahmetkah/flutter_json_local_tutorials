@@ -2,11 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
 
-import '/models/models.dart';
+import '/data/models/models.dart';
 
 class PostService {
   Future<List<Post>> getPosts() async {
-    final _localPath = "assets/data/posts.json";
+    const _localPath = "assets/data/posts.json";
 
     // 1) JSON Array[] To String:
     final _response = await rootBundle.loadString(_localPath);

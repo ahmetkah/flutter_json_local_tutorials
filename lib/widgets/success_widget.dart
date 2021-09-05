@@ -1,34 +1,35 @@
 import 'package:flutter/material.dart';
 
-import '/models/models.dart';
+import '/controllers/controllers.dart';
 
 class SuccessWidget extends StatelessWidget {
   const SuccessWidget({
     Key? key,
-    required this.posts,
+    required this.controller,
   }) : super(key: key);
 
-  final List<Post>? posts;
+  final PostController controller;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: posts?.length,
+      itemCount: controller.posts.length,
       physics: const BouncingScrollPhysics(),
       itemBuilder: (BuildContext context, int index) {
+        var posts = controller.posts[index];
         return Card(
           child: ListTile(
             leading: Text(
-              'Id: ${posts?[index].id}',
+              'Id: ${posts.id}',
             ),
             title: Text(
-              'Title: ${posts?[index].title}',
+              'Title: ${posts.title}',
             ),
             subtitle: Text(
-              'Body: ${posts?[index].body}',
+              'Body: ${posts.body}',
             ),
             trailing: Text(
-              'userId: ${posts?[index].userId}',
+              'userId: ${posts.userId}',
             ),
           ),
           elevation: 4.0,
